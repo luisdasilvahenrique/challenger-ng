@@ -7,5 +7,19 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("postgresql://USER:PASSWORD@HOST:PORT/DATABASE") //DATABASE_URL
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   
+  password  String   
+}
+
+model Accounts {
+  id        String   @id @default(cuid())
+  username  String   
+  password  String   
+
+  
 }
